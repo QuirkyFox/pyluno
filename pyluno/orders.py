@@ -96,8 +96,9 @@ class Orders(object):
         params = {
             'since': since,
             'limit': limit,
+            'pair': 'XBTZAR'
         }
-        params = {'pair': self.main.pair if pair is None else pair}
+        #params = {'pair': self.main.pair if pair is None else pair} #seems like this was replacing the params variable and resulting in the since and limit being ignored
         trades = self.main.api_request('listtrades', params)
         return trades
 
